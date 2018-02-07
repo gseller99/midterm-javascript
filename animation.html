@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JS Drive Around</title>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        
+    .buttonStart {
+        margin-left: 40px;
+    }
+    .divImage {
+        height: 200px;
+        width: 200px;
+        background-color: red;
+        position: absolute;
+    </style>
+</head>
+
+<body>
+   <!--  <input class="buttonStart" type="button" value="Start Box" onclick="startBox()">
+    <input class="buttonReset" type="button" value="Reset Box" onclick="resetBox()"> -->
+    <div class="divImage"></div>
+    <script>
+   
+   //DONE 1. Add a 200px x 200px red square div to the page. Animate it from left to right, 10px per iteration. Move it 1000px to the right.
+
+    let box = document.querySelector('.divImage');
+    console.dir(box);
+    let roadSpeed = 50;
+    var intervalId;
+    function resetBox() {
+        box.style.top = "80px";
+        box.style.left = "60px";
+    }
+
+    resetBox();
+
+    console.dir(box);
+
+    //Move box to right
+
+    function moveboxEast() {
+        let boxLeft = getComputedStyle(box).left.replace('px', '');
+        if (boxLeft >= 1060) {
+            stopBox();
+        }
+
+        console.log(box.style.left + ' = left');
+        console.log(boxLeft + ' = left');
+        
+        box.style.left = `${parseInt(box.style.left.replace("px", "")) + 10}px`;
+        boxLeft = box.style.left.replace('px', '');
+    }
+
+    function startBox() {
+        intervalId = setInterval(moveboxEast, roadSpeed);
+    }
+
+    //Clearing interval of box
+    function stopBox() {
+        clearInterval(intervalId);
+    }
+
+    var start = startBox();
+
+    </script>
+</body>
+
+</html>

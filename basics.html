@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Midterm JS</title>
+
+</head>
+<body>
+	<script type="text/javascript">
+	
+// DONE 1.  Declare a helloWorld variable with a message of "hey there"!
+var helloWorld = "hey there";
+// DONE 2. Alert your helloWorld variable for all to see.
+alert('"' + helloWorld + '"!');
+// DONE 3. Output your helloWorld to the console.
+console.log(helloWorld);
+// DONE 4. Convert your helloWorld variable to an array of words and store that value into a wordsArray variable.
+var wordsArray = helloWorld.trim().split(" ");
+console.log(wordsArray);
+// DONE 5. Print the second word to the console.
+console.log(wordsArray[1]);
+// DONE 6. Print each character of each word in the array on its own line to the console.
+for (var i = 0; i < wordsArray.length; i++) {
+	for (var j = 0; j < wordsArray[i].length; j++) {
+		console.log(wordsArray[i][j]);
+	}
+}
+// DONE 7. Determine how many characters are in the words in the wordsArray. var count = 0. count += wordsArray[i].length.
+for (var i = 0; i < wordsArray.length; i++) {
+	console.log(wordsArray[i] + " = " + wordsArray[i].length + " characters");
+}
+// DONE 8. Create an array of the following fruit called fruitArray: apple, orange, banana, pear
+var fruitArray = ["apple", "orange", "banana", "pear"];
+console.log(fruitArray);
+// DONE 9. Print the third item in the array on the console.
+console.log(fruitArray[2]);
+// DONE 10. Find all the fruit in the fruitArray that have an "e" in their name. Different answer: for loop and if (fruits[i]indexOf("e") != -1)
+for (var i = 0; i < fruitArray.length; i++) {
+	for (var j = 0; j < fruitArray[i].length; j++) {
+		if (fruitArray[i][j] === "e") {
+			console.log(fruitArray[i] + " is a fruit with the letter e in its name");
+		}
+	}
+}
+// DONE 11. Remove the orange from the fruitArray.
+function removeFruit(fruitToRemove) {
+	for (var i = 0; i < fruitArray.length; i++) {
+		if (fruitArray[i] === fruitToRemove) {
+			fruitArray.splice(i,1);
+		}
+	}
+}
+removeFruit("orange");
+console.log(fruitArray);
+
+// DONE 12. Add the orange back to the fruitArray between banana and pear.
+// fruitArray.splice(i,0,"orange");
+function placeFruit(fruitToAdd, beforeFruit) {
+	for (var i = 0; i < fruitArray.length; i++) {
+		if (fruitArray[i] === beforeFruit) {
+			fruitArray.splice(i,0,fruitToAdd);
+			return;
+		}
+	} 
+}
+
+placeFruit("orange", "pear");
+console.log(fruitArray);
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Midterm JS</title>
+<style type="text/css">
+        
+    .buttonStart {
+        margin-left: 40px;
+    }
+    .divImage {
+        height: 200px;
+        width: 200px;
+        background-color: green;
+        position: absolute;
+    </style>
+
+
+</head>
+<body>
+
+	<button id="hitme">click me to see alert in console</button>
+	<input class="buttonStart" type="button" value="Start Box" onclick="startBox()">
+    <input class="buttonReset" type="button" value="Reset Box" onclick="resetBox()">
+    <button class="buttonStart" type="button" value="Start Box" onclick="buttonClicked()">click me to see "you clicked me in console"</button>
+    <div class="divImage"></div>
+	<script type="text/javascript">
+	
+	
+// DONE	1. Alert "hello world" 5 seconds after the page loads.
+
+function displayText() {
+setTimeout(alertPage, 5000);
+}
+
+function alertPage () {
+alert("hello world");
+}
+
+displayText();
+
+// DONE 2. Add a button to the page. When clicked, say "hello world" to the console.
+
+var button = document.querySelector('#hitme');
+console.dir(button);
+
+button.addEventListener('click', consoleText);
+
+function consoleText() {
+	console.log("hello world");
+}
+
+
+// DONE 3. Add a 200px x 200px green square to the page. Add another button to the page. When clicked, move the square to the other side of the page.
+
+  let box = document.querySelector('.divImage');
+    console.dir(box);
+    let roadSpeed = 25;
+    var intervalId;
+    function resetBox() {
+        box.style.top = "80px";
+        box.style.left = "60px";
+    }
+
+    resetBox();
+
+    console.dir(box);
+
+    //Move box to right
+
+    function moveboxEast() {
+        let boxLeft = getComputedStyle(box).left.replace('px', '');
+        if (boxLeft >= 1060) {
+            stopBox();
+        }
+
+        console.log(box.style.left + ' = left');
+        console.log(boxLeft + ' = left');
+        
+        box.style.left = `${parseInt(box.style.left.replace("px", "")) + 10}px`;
+        boxLeft = box.style.left.replace('px', '');
+    }
+
+    function startBox() {
+        intervalId = setInterval(moveboxEast, roadSpeed);
+    }
+
+    //Clearing interval of box
+    function stopBox() {
+        clearInterval(intervalId);
+    }
+
+// 4. Create a custom event called buttonClicked. Create an event handler function for the buttonClicked event that prints "you clicked me" to the console. Add a button to the screen that when clicked, sends the buttonClicked event.
+
+function buttonClicked () {
+console.log("you clicked me");
+}
+
+	</script>
+
+</body>
+</html>

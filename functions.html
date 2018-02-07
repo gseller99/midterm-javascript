@@ -1,0 +1,163 @@
+</head>
+<body>
+	<script type="text/javascript">
+	
+	
+//DONE 1. Create a function named add that adds two numbers. Print the result of the add function when passing in 2 and 2.
+
+function add(a,b) {
+var answer = a + b;
+console.log(answer);
+}
+
+add(2,2);
+
+//DONE 2. Create a function named multiply that multiplies two numbers, and takes a callback function. Print the result of calling the multiply function when passing in 2 and 2. Pass in an anonymous function that alerts the result of the multiply function using the callback parameter.
+// var c = 2;
+// var d = 2;
+
+// var x = function (a, b) {return a * b};
+// var z = x(4, 3);
+
+var x = function(answer) {
+  alert("The answer is " + answer);
+}
+
+function multiply(c,d,callback) {
+  var answer = c*d;
+  console.log(answer);
+  callback(answer);
+}
+
+multiply(8,6,x);
+
+// function greeting(name) {
+//   alert('Hello ' + name);
+// }
+
+// function processUserInput(callback) {
+//   var name = prompt('Please enter your name.');
+//   callback(name);
+// }
+
+// processUserInput(greeting);
+
+//DONE 3. Create a function named concat that concatenates two strings, and takes a callback function. Create a log function that prints the input parameter to the console. Then call the concat function, passing in hello and world, and pass in the log function that logs the result of concat function to the callback function.
+
+var x = function(fullString) {
+  console.log("The answer is " + fullString);
+}
+
+function concat(string1,string2,callback) {
+  var fullString = string1 + " " + string2;
+  callback(fullString);
+}
+
+concat("hello","world",x);
+
+
+// function concat(string1,string2) {
+// 	var answer = combine ();
+// 	console.log(answer);
+// }
+
+// var string1 = "hello";
+// var string2 = "world";
+
+// console.log(string1 + " " + string2);
+
+// function combine () {
+// 	return string1 + " " + string2; 
+// }
+
+// concat("hello","world");
+
+//  DONE 4. Create a function called carFactory that returns an object with the passed in make, model, year, color. Return an object literal.
+
+function carFactory(make,model,year) {
+    return {
+        make: make,
+        model: model,
+        year: year
+    };}
+var car1 = carFactory("Toyota", "Rav4", 2016);
+console.log(car1);
+
+
+// function CarFactory(make,model,year) {
+// 	this.make = make;
+// 	this.model = model;
+// 	this.year = year;
+// }
+
+// var car = new CarFactory("Toyota", "Rav4", 2016);
+// console.dir(car);
+
+// DONE 5. Create a function called fooBar that takes in an number parameter. If the number is divisible by 3, print foo. If the number is divisible by 5, print bar. If the number if divisible by both 3 and 5, print foobar. Otherwise print the number that is passed in.
+
+function foobar(count) {
+        for(var i = 1; i < count + 1; i++) {
+            if( i % 3 === 0 && i % 5 === 0) {
+                console.log(i + ' = foobar');
+                // console.log("foobar")  
+            }
+            else if( i % 3 === 0) {
+                console.log(i + ' = foo');
+                // console.log("foo")
+            }
+            else if(i % 5 === 0) {
+                console.log(i + ' = bar');
+                // console.log("bar") 
+            }
+            else
+                console.log(i);
+                // console.log(i)
+        }
+    };
+    foobar(30);
+
+    //DONE 6. Without modifying the fooBar function, iterate from 1 to 100 and test each number.
+
+    foobar(100);
+
+    // Reinterpreting the question
+
+function foobar2(number) {
+            if(number % 3 === 0 && number % 5 === 0) {
+                console.log(number + ' = foobar');
+                // console.log("foobar")  
+            }
+            else if(number % 3 === 0) {
+                console.log(number + ' = foo');
+                // console.log("foo")
+            }
+            else if(number % 5 === 0) {
+                console.log(number + ' = bar');
+                // console.log("bar") 
+            }
+            else
+                console.log(number);
+                // console.log(i)
+        
+    };
+
+    foobar2(30);
+
+    function fooBarLoop(count) {
+        for (var i = 1; i < count +1; i++) {
+            foobar2(i);
+        }
+        return;
+    }
+
+    fooBarLoop(100);
+
+// var friends = ["Mike", "Stacy", "Andy", "Rick"];
+// ​friends.forEach(function (eachName, index){
+// console.log(index + 1 + ". " + eachName); // 1. Mike, 2. Stacy, 3. Andy, 4. Rick​
+// });
+
+	</script>
+
+</body>
+</html>
